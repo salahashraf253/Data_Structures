@@ -41,15 +41,15 @@
 | Function       | Complexity |
 |----------------|------------|
 | `size()`       |    O(1)    |
-| `empty()`      |    O(1)    |
+| `isEmpty()`      |    O(1)    |
 | `front()`      |    O(1)    |
 | `back()`       |    O(1)    |
-| `at()`         |    O(n)    |
-| `deleteAt()`   |    O(n)    |
-| `insertAt()`     |    O(n)    |
 | `push_front()` |    O(1)    |
 | `push_back()`  |    O(1)    |
 | `pop_front()`  |    O(1)    |
+| `at()`         |    O(n)    |
+| `deleteAt()`   |    O(n)    |
+| `insertAt()`     |    O(n)    |
 | `pop_back()`   |    O(n)    |
 | `display()`   |    O(n)    |
 
