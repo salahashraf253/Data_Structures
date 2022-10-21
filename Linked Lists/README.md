@@ -52,6 +52,7 @@
 | `insertAt()`     |    O(n)    |
 | `pop_back()`   |    O(n)    |
 | `display()`   |    O(n)    |
+| `reverse()`   |    O(n)    |
 
 
 
@@ -91,6 +92,7 @@
 | `pop_back()`   | Removes the last element of the list, and decreases size of the list by 1.|
 |`deleteAt(pos)` | Remove an element at specific position, and decreases size of the list by 1.|
 |`display()` | Traverse over all the list and print the value of every node  .|
+|`reverse()` | Reverse the list.|
 
 
 
