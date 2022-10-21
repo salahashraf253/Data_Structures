@@ -15,11 +15,12 @@ Node<T>::Node(T val) {
 template<class T>
 LinkedList<T>::LinkedList() {
     head=tail=0;
-    ctr=0;
+    counter=0;
 }
 template<class T>
 bool LinkedList<T>::isEmpty(){
-    return ctr==0;
+//    cout<<"Ctr: "<<counter<<"\n";
+    return counter == 0;
 }
 template<class T>
 void LinkedList<T>::push_front(T val) {
@@ -31,7 +32,7 @@ void LinkedList<T>::push_front(T val) {
         newNode->next=head;
         head=newNode;
     }
-    ctr++;
+    counter++;
 }
 template<class T>
 void LinkedList<T>::push_back(T val) {
@@ -43,12 +44,12 @@ void LinkedList<T>::push_back(T val) {
         tail->next=newNode;
         tail=newNode;
     }
-    ctr++;
+    counter++;
 }
 template<class T>
 void LinkedList<T>::insertAt(int pos, T val) {
-    assert(pos>=0 && pos<=ctr);
-    if(pos==ctr){
+    assert(pos>=0 && pos <= counter);
+    if(pos == counter){
         push_back(val);
         return;
     }
@@ -60,7 +61,7 @@ void LinkedList<T>::insertAt(int pos, T val) {
     }
     newNode->next=tmp->next;
     tmp->next=newNode;
-    ctr++;
+    counter++;
 
 }
 template<class T>
@@ -74,11 +75,11 @@ void LinkedList<T>::display() {
 }
 template<class T>
 int LinkedList<T>::size() {
-    return ctr;
+    return counter;
 }
 template<class T>
 void LinkedList<T>::deleteAt(int pos) {
-    assert(pos>=0 && pos<ctr);
+    assert(pos>=0 && pos < counter);
     Node<T>*tmp=head;
     if(pos==0){
         head=head->next;
@@ -90,17 +91,17 @@ void LinkedList<T>::deleteAt(int pos) {
         }
         Node<T>*deletedNode=tmp->next;
         tmp->next=deletedNode->next;
-        if(pos==ctr-1){
+        if(pos == counter - 1){
             tail=tmp;
         }
         delete deletedNode;
     }
-    ctr--;
+    counter--;
 }
 template<class T>
 T LinkedList<T>::at(int pos) {
     Node<T>*tmp=head;
-    for(int i=0;i<ctr;i++){
+    for(int i=0; i < counter; i++){
         if(i==pos)break;
         tmp=tmp->next;
     }
@@ -122,7 +123,20 @@ void LinkedList<T>::pop_front() {
 }
 template<class T>
 void LinkedList<T>::pop_back() {
-    deleteAt(ctr-1);
+    deleteAt(counter - 1);
+}
+
+template<class T>
+void LinkedList<T>::reverse() {
+    Node<T>*curr=head;
+    Node<T>*next=0,*newList=0;
+    while (curr){
+        next=curr->next;
+        curr->next=newList;
+        newList=curr;
+        curr= next;
+    }
+    head=newList;
 }
 template<class T>
 LinkedList<T>::~LinkedList<T>() {

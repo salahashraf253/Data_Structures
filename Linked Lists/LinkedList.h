@@ -17,7 +17,7 @@ template<class T>
 class LinkedList {
 
 public:
-    int ctr=0;  //for elements
+    int counter=0;  //for elements
     Node<T>*head;
     Node<T>*tail;
 
@@ -34,6 +34,7 @@ public:
     T back();
     void pop_front();
     void pop_back();
+    void reverse();
     ~LinkedList();
 };
 
